@@ -6,7 +6,7 @@ from langchain_core.prompts import PromptTemplate
 
 st.title("Your personal chatbot is here")
 
-api_key = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
+api_key = st.secrets["api_key"]
 
 # Initialize Hugging Face Inference Client
 client = InferenceClient(model="mistralai/Mistral-Nemo-Instruct-2407", token=api_key)
