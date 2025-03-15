@@ -6,16 +6,10 @@ from langchain_core.prompts import PromptTemplate
 
 st.title("Your personal chatbot is here")
 
-if "api_key" not in st.secrets:
-    st.error("Hugging Face API key is missing! Please add it in Streamlit Secrets.")
-else:
-    api_key = st.secrets["api_key"]
+api_key = st.secrets["HUGGINGFACEHUB_API_TOKEN"]
 
-model = HuggingFaceEndpoint(
-    repo_id="DeepSeek-R1-Distill-Qwen-1.5B",
-    task="text-generation",
-    huggingfacehub_api_key=api_key
-)
+# Initialize Hugging Face Inference Client
+client = InferenceClient(model="mistralai/Mistral-Nemo-Instruct-2407", token=api_key)
 
 if "messages" not in st.session_state:
     st.session_state.messages = [
