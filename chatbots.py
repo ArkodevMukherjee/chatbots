@@ -12,7 +12,7 @@ else:
     api_key = st.secrets["api_key"]
 
 model = HuggingFaceEndpoint(
-    repo_id="Qwen/QwQ-32B",
+    repo_id="DeepSeek-R1-Distill-Qwen-1.5B",
     task="text-generation",
     huggingfacehub_api_key=api_key
 )
