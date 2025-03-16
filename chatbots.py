@@ -17,8 +17,7 @@ model = HuggingFaceEndpoint(
 )
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        SystemMessage(content="Hello! I am your personal chatbot. How can I help you today?"),
-        AIMessage(content="I am a chatbot.")
+        SystemMessage(content="Hello! I am your personal chatbot. How can I help you today?")
     ]
 
 # Display chat history
