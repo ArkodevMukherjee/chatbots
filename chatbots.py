@@ -1,18 +1,25 @@
 import streamlit as st
-from langchain_huggingface import ChatHuggingFace
+from langchain_huggingface import HuggingFaceEndpoint, ChatHuggingFace
 from langchain_core.messages import SystemMessage, AIMessage, HumanMessage
 
 st.title("Your Personal Chatbot")
 
-# Get API key from Streamlit secrets
+# Ensure API key exists in secrets
+if "api_key" not in st.secrets:
+    st.error("Missing Hugging Face API key! Add it to Streamlit secrets.")
+    st.stop()
+
 api_key = st.secrets["api_key"]
 
-# Load the model properly
-model = ChatHuggingFace(
+# Properly initialize the Hugging Face model
+llm_model = HuggingFaceEndpoint(
     repo_id="meta-llama/Meta-Llama-3-8B-Instruct",
     task="text-generation",
     huggingfacehub_api_token=api_key
 )
+
+# Pass `llm_model` inside `ChatHuggingFace`
+model = ChatHuggingFace(llm=llm_model)
 
 # Initialize chat history
 if "messages" not in st.session_state:
