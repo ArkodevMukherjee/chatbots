@@ -8,11 +8,13 @@ from huggingface_hub import Inferenceclient
 st.title("Your personal chatbot is here")
 api_key = st.secrets["api_key"]
 
-# Initialize Hugging Face Model
+
+
+
 llm = HuggingFaceEndpoint(
     repo_id="Qwen/QwQ-32B",
     task="text-generation",
-    huggingfacehub_api_token=api_key  # Pass API key here
+    huggingfacehub_api_token=api_key
 )
 if "messages" not in st.session_state:
     st.session_state.messages = [
