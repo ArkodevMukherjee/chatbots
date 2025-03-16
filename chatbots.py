@@ -7,7 +7,7 @@ from langchain_core.prompts import PromptTemplate
 st.title("Your personal chatbot is here")
 
 model = HuggingFaceEndpoint(
-    repo_id="google/gemma-3-1b-pt",
+    repo_id="meta-llama/Llama-3.2-3B-Instruct",
     task="text-generation"
 )
 
