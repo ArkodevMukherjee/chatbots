@@ -7,7 +7,7 @@ from langchain_core.prompts import PromptTemplate
 st.title("Your personal chatbot is here")
 
 model = HuggingFaceEndpoint(
-    repo_id="distilbert/distilbert-base-cased-distilled-squad",
+    repo_id="google-bert/bert-large-uncased-whole-word-masking-finetuned-squad",
     task="text-generation"
 )
 
