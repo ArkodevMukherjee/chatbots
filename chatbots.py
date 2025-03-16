@@ -2,7 +2,6 @@ import streamlit as st
 from langchain_huggingface import HuggingFaceEndpoint,ChatHuggingFace
 from langchain_core.messages import SystemMessage,AIMessage,HumanMessage
 from langchain_core.prompts import PromptTemplate
-from huggingface_hub import Inferenceclient
 
 
 st.title("Your personal chatbot is here")
