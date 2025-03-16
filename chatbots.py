@@ -6,12 +6,14 @@ from huggingface_hub import Inferenceclient
 
 
 st.title("Your personal chatbot is here")
-
 api_key = st.secrets["api_key"]
 
-# Initialize Hugging Face Inference Client
-client = InferenceClient(model="mistralai/Mistral-Nemo-Instruct-2407", token=api_key)
-
+# Initialize Hugging Face Model
+llm = HuggingFaceEndpoint(
+    repo_id="Qwen/QwQ-32B",
+    task="text-generation",
+    huggingfacehub_api_token=api_key  # Pass API key here
+)
 if "messages" not in st.session_state:
     st.session_state.messages = [
         SystemMessage(content="Hello! I am your personal chatbot. How can I help you today?"),
