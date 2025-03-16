@@ -11,7 +11,7 @@ api_key = st.secrets["api_key"]
 
 
 model = HuggingFaceEndpoint(
-    repo_id="Qwen/QwQ-32B",
+    repo_id="deepseek-ai/DeepSeek-R1",
     task="text-generation",
     huggingfacehub_api_token=api_key
 )
