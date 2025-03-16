@@ -10,7 +10,7 @@ api_key = st.secrets["api_key"]
 
 
 
-llm = HuggingFaceEndpoint(
+model = HuggingFaceEndpoint(
     repo_id="Qwen/QwQ-32B",
     task="text-generation",
     huggingfacehub_api_token=api_key
